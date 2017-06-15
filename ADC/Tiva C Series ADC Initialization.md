@@ -11,15 +11,21 @@ The initialization sequence for the **ADC** is as follows:
 1. Enable the **ADC** clock using **RCGCADC** register [(see page 325)](http://www.ti.com/lit/ds/symlink/tm4c123gh6pm.pdf).
 ![RCGCADC](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/RCGCADC.png)
 2. Enable the clock to the appropriate **GPIO** modules via the **RCGCGPIO** register [(see page 340)](http://www.ti.com/lit/ds/symlink/tm4c123gh6pm.pdf). To find out which GPIO ports to enable, refer to “Signal Description” on page 801.
+![RCGCGPIO_1](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/RCGCGPIO_1.png)
+![RCGCGPIO_2](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/RCGCGPIO_2.png)
 3. Set the **GPIO AFSEL** bits for the **ADC** input pins (see page 671). To determine which GPIOs to configure, see Table 23-4 on page 1344.
+![GPIOAFSEL](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/GPIOAFSEL.png)
 4. Configure the **AINx** signals to be analog inputs by clearing the corresponding **DEN** bit in the **GPIO** Digital Enable **(GPIODEN)** register (see page 682).
+![GPIODEN](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/GPIODEN.png)
 5. Disable the analog isolation circuit for all **ADC** input pins that are to be used by
 writing a 1 to the appropriate bits of the **GPIOAMSEL** register (see page 687) in the
 associated GPIO block.
+![GPIOAMSEL](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/GPIOAMSEL.png)
 6. If required by the application, reconfigure the sample sequencer priorities in the
 **ADCSSPRI** register. The default configuration has Sample Sequencer 0 with the
 highest priority and Sample Sequencer 3 as the lowest priority.
-
+![ADCSSPRI_1](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/ADCSSPRI_1.png)
+![ADCSSPRI_2](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/ADCSSPRI_2.png)
 ## Sample Sequencer Configuration
 
 Configuration of the sample sequencers is slightly more complex than the module
