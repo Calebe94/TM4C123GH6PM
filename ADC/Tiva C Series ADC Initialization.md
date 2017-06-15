@@ -1,3 +1,4 @@
+
 # Initialization and Configuration
 
 In order for the **ADC** module to be used, the PLL must be enabled and programmed to a supported crystal frequency in the RCC register (see page 254). Using unsupported frequencies can cause faulty operation in the ADC module.
@@ -8,7 +9,7 @@ Initialization of the **ADC** module is a simple process with very few steps: en
 The initialization sequence for the **ADC** is as follows:
 
 1. Enable the **ADC** clock using **RCGCADC** register [(see page 325)](http://www.ti.com/lit/ds/symlink/tm4c123gh6pm.pdf).
-![RCGCADC](https://drive.google.com/a/up.edu.br/file/d/0Bwuo-fsYgwpOamM5aWJIeHhBVVE/view?usp=sharing)
+![RCGCADC](https://github.com/Calebe94/TM4C123GH6PM/blob/master/ADC/Images/Module%20Initialization/RCGCADC.png)
 2. Enable the clock to the appropriate **GPIO** modules via the **RCGCGPIO** register [(see page 340)](http://www.ti.com/lit/ds/symlink/tm4c123gh6pm.pdf). To find out which GPIO ports to enable, refer to “Signal Description” on page 801.
 3. Set the **GPIO AFSEL** bits for the **ADC** input pins (see page 671). To determine which GPIOs to configure, see Table 23-4 on page 1344.
 4. Configure the **AINx** signals to be analog inputs by clearing the corresponding **DEN** bit in the **GPIO** Digital Enable **(GPIODEN)** register (see page 682).
